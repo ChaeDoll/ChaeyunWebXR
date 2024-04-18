@@ -1,9 +1,10 @@
 import Interface from "../layout/Interface";
 
 const StartSceneInterface = () => {
-    
-    const handleClickButton = () => {
-        console.log('hi');
+    const handleClickButton = async() => {
+        const response = await fetch("/.netlify/functions/getData");
+        const result = await response.json();
+        console.log(result);
     }
     return (
         <Interface>
