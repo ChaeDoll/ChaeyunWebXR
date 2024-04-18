@@ -1,42 +1,23 @@
-import axios from "axios";
+import useDB from "../hook/usedb";
 import Interface from "../layout/Interface";
-import { useState } from "react";
-const LOGIN_URL = import.meta.env.REACT_APP_MONGODB_LOGIN;
-const DB_API_URL = import.meta.env.REACT_APP_MONGODB_API_URL;
 
 const StartSceneInterface = () => {
-    const [dbToken, setDbToken] = useState();
+    const { dbLogin, dbFindOne, dbFindAll } = useDB();
     const handleClickButton = async() => {
-        axios.post(LOGIN_URL,{
-            username: "codbs0627",
-            password: "NIjRQLrV9DpBx87N"
-        }, {headers:{"Content-Type":"application/json"}})
-        .then(res=>{
-            console.log(res.data);
-            setDbToken(res.data)
-        })
+        const result = await dbLogin();
+        console.log(result);
     }
     const handleClickButton2 = async() => {
-        axios.post(`${DB_API_URL}/action/find`,{
-            dataSource: "ChaeyunCluster",
-            database: "ChaeyunXR",
-            collection: "PersonalProject",
-            filter: {
-            },
-            projection: {
-                // _id: 1,
-                cocktailName: 1,
-            }
-            // select _id from PersonalProject where (filer);
+        const result = await dbFindOne({
+            cocktailName:"Magarita" // filter
         },{
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${dbToken.access_token}`,
-              }
-        })
-        .then(res=>{
-            console.log(res.data);
-        })
+            cocktailName:1 // cocktailName 열 가져오기 (projection)
+        });
+        console.log(result);
+    }
+    const handleClickButton3 = async() => {
+        const result = await dbFindAll({text:{$exists:true}},{_id:0, text:1});
+        console.log(result);
     }
     return (
         <Interface>
@@ -45,9 +26,10 @@ const StartSceneInterface = () => {
                 onClick={handleClickButton}>토큰 가져오기</button>
                 <button className="interface-button"
                 onClick={handleClickButton2}>데이터 가져오기</button>
+                <button className="interface-button"
+                onClick={handleClickButton3}>데이터 모두 가져오기</button>
             </div>
         </Interface>
     )
 }
-
 export default StartSceneInterface;
