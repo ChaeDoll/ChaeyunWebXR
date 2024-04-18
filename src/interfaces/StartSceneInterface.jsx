@@ -4,7 +4,7 @@ const StartSceneInterface = () => {
     const handleClickButton = async() => {
         const response = await fetch("./functions/getData");
         const result = await response.json();
-        console.log(result);
+        console.log('result : ',result);
     }
     return (
         <Interface>
