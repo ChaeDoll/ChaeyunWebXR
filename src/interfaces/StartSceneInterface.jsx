@@ -16,17 +16,19 @@ const StartSceneInterface = () => {
         })
     }
     const handleClickButton2 = async() => {
-        axios.post('https://us-west-2.aws.data.mongodb-api.com/app/data-ftpwy/endpoint/data/v1/action/findOne',{
-            collection: "PersonalProject",
-            database: "ChaeyunXR",
+        axios.post('https://us-west-2.aws.data.mongodb-api.com/app/data-ftpwy/endpoint/data/v1/action/find',{
             dataSource: "ChaeyunCluster",
+            database: "ChaeyunXR",
+            collection: "PersonalProject",
+            filter: {
+            },
             projection: {
                 _id: 1
             }
+            // select _id from PersonalProject where (filer);
         },{
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Request-Headers': '*',
                 'Authorization': `Bearer ${dbToken.access_token}`,
               }
         })
