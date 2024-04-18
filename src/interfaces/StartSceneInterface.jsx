@@ -1,12 +1,13 @@
 import axios from "axios";
 import Interface from "../layout/Interface";
 import { useState } from "react";
+const LOGIN_URL = import.meta.env.REACT_APP_MONGODB_LOGIN;
 const DB_API_URL = import.meta.env.REACT_APP_MONGODB_API_URL;
 
 const StartSceneInterface = () => {
     const [dbToken, setDbToken] = useState();
     const handleClickButton = async() => {
-        axios.post('https://us-west-2.aws.services.cloud.mongodb.com/api/client/v2.0/app/data-ftpwy/auth/providers/local-userpass/login',{
+        axios.post(LOGIN_URL,{
             username: "codbs0627",
             password: "NIjRQLrV9DpBx87N"
         }, {headers:{"Content-Type":"application/json"}})
@@ -16,14 +17,15 @@ const StartSceneInterface = () => {
         })
     }
     const handleClickButton2 = async() => {
-        axios.post('https://us-west-2.aws.data.mongodb-api.com/app/data-ftpwy/endpoint/data/v1/action/find',{
+        axios.post(`${DB_API_URL}/action/find`,{
             dataSource: "ChaeyunCluster",
             database: "ChaeyunXR",
             collection: "PersonalProject",
             filter: {
             },
             projection: {
-                _id: 1
+                // _id: 1,
+                cocktailName: 1,
             }
             // select _id from PersonalProject where (filer);
         },{
