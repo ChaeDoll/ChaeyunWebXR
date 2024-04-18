@@ -12,6 +12,7 @@ import * as XRSample from "../webxr/js/webxr-sample-app"
 const StartScene = () => {
     // const xrSample = XRSample.WebXRSampleApp();
     // xrSample.
+
     return (
         <>
             <Canvas shadows camera={{
@@ -22,7 +23,7 @@ const StartScene = () => {
                 <StartSceneMaterial/>
                 <DefaultGround/>
             </Canvas>
-            <StartSceneInterface />
+            <StartSceneInterface/>
         </>
     )
 }

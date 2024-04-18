@@ -16,7 +16,7 @@ const StartSceneInterface = () => {
         console.log(result);
     }
     const handleClickButton3 = async() => {
-        const result = await dbFindAll({text:{$exists:true}},{_id:0, text:1});
+        const result = await dbFindAll({text:{$exists:true}});
         console.log(result);
     }
     return (

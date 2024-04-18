@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { OrbitControls, useTexture } from "@react-three/drei";
+import { useState } from "react";
 
 const StartSceneMaterial = () => {
     const tone = useTexture('materials/fiveTone.jpg');
@@ -9,8 +10,9 @@ const StartSceneMaterial = () => {
         <>
             <OrbitControls/>
             <mesh position={[0, 3, 0]} receiveShadow castShadow >
-                <sphereGeometry />
-                <meshToonMaterial gradientMap={tone} color={'#AAFFFF'} />
+                <boxGeometry />
+                <meshStandardMaterial side={THREE.FrontSide} color={'#AAFFFF'}/>
+                {/* <meshToonMaterial gradientMap={tone} color={'#AAFFFF'} /> */}
             </mesh>
         </>
     )
