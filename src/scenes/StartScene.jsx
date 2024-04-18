@@ -8,11 +8,12 @@ import * as XRMaterial from "../webxr/js/render/core/material"
 import * as XRNode from "../webxr/js/render/core/node"
 import * as XRRenderer from "../webxr/js/render/core/renderer"
 import * as XRSample from "../webxr/js/webxr-sample-app"
+import { useState } from "react";
 
 const StartScene = () => {
     // const xrSample = XRSample.WebXRSampleApp();
     // xrSample.
-
+    const [data, setData] = useState();
     return (
         <>
             <Canvas shadows camera={{
@@ -20,10 +21,10 @@ const StartScene = () => {
                 position:[0,7,7],
             }}>
                 <SkyWithLight/>
-                <StartSceneMaterial/>
+                <StartSceneMaterial data={data}/>
                 <DefaultGround/>
             </Canvas>
-            <StartSceneInterface/>
+            <StartSceneInterface setData={setData}/>
         </>
     )
 }
