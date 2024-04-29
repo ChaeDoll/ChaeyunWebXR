@@ -9,10 +9,10 @@ import * as XRNode from "../webxr/js/render/core/node"
 import * as XRRenderer from "../webxr/js/render/core/renderer"
 import * as XRSample from "../webxr/js/webxr-sample-app"
 import { useState } from "react";
+import { WebXRButton } from "../webxr/js/util/webxr-button";
 
 const StartScene = () => {
     // const xrSample = XRSample.WebXRSampleApp();
-    // xrSample.
     const [data, setData] = useState();
     return (
         <>

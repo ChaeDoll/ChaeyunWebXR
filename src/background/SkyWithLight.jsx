@@ -11,7 +11,7 @@ const SkyWithLight = () => {
     useFrame((state, delta) => {
         if (sunDegree < -270) { setSunDegree(90);}
         else { setSunDegree(prev => prev - 0.01);}
-        sun.setFromSphericalCoords(60, THREE.MathUtils.degToRad(sunDegree), 90); //반지름 60, +각도를 따라서, 동쪽에서 시작
+        sun.setFromSphericalCoords(30, THREE.MathUtils.degToRad(sunDegree), 90); //반지름 30, +각도를 따라서, 동쪽에서 시작
         sunRef.current.material.uniforms.sunPosition.value.copy(sun);
         const y = Math.cos(THREE.MathUtils.degToRad(sunDegree)) * 30 ;
         const x = Math.sin(THREE.MathUtils.degToRad(sunDegree)) * 30 ;
@@ -19,8 +19,8 @@ const SkyWithLight = () => {
     })
     return (
         <>
-            <ambientLight intensity={0.2}/>
-            <directionalLight ref={lightRef} castShadow shadow-mapSize={2048} intensity={0.5}>
+            <ambientLight intensity={0.8}/>
+            <directionalLight ref={lightRef} castShadow shadow-mapSize={2048} intensity={1.5}>
                 <Sky ref={sunRef} />
             </directionalLight>
         </>
