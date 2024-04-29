@@ -31,8 +31,8 @@ const StartSceneInterface = ({setData}) => {
                 onClick={handleClickButton2}>데이터 가져오기</button>
                 <button className="interface-button"
                 onClick={handleClickButton3}>데이터 모두 가져오기</button>
-                <button className="interface-button"
-                onClick={handlePingPong}>핑퐁</button>
+                {/* <button className="interface-button" */}
+                {/* onClick={handlePingPong}>핑퐁</button> */}
             </div>
         </Interface>
     )

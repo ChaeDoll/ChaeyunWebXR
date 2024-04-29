@@ -18,6 +18,7 @@ const useDB = () => {
             password: DB_PASSWORD
         }, {headers:{"Content-Type":"application/json"}})
         .then(res=>{
+            console.log(res.data);
             setDbToken(res.data);
             return {
                 status : 200,
