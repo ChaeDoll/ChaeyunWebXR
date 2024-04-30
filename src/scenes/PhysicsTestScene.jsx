@@ -10,7 +10,7 @@ const PhysicsTestScene = () => {
     return (
         <>
             <Canvas shadows camera={{
-                fov:45,
+                fov:60,
                 position:[0,3,0],
                 rotation:[-Math.PI/180*10, 0,0]
             }}>

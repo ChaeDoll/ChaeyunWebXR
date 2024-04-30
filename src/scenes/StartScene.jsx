@@ -10,6 +10,7 @@ import * as XRRenderer from "../webxr/js/render/core/renderer"
 import * as XRSample from "../webxr/js/webxr-sample-app"
 import { useState } from "react";
 import { WebXRButton } from "../webxr/js/util/webxr-button";
+import { Physics } from "@react-three/rapier";
 
 const StartScene = () => {
     // const xrSample = XRSample.WebXRSampleApp();
@@ -22,7 +23,9 @@ const StartScene = () => {
             }}>
                 <SkyWithLight/>
                 <StartSceneMaterial data={data}/>
-                <DefaultGround/>
+                <Physics>
+                    <DefaultGround/>
+                </Physics>
             </Canvas>
             <StartSceneInterface setData={setData}/>
         </>

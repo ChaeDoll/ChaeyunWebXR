@@ -6,7 +6,7 @@ const PhysicsTestSceneBox = () =>{
             <RigidBody>
                 <mesh receiveShadow castShadow position={[0, 5, -5]}>
                     <boxGeometry />
-                    <meshStandardMaterial color={'green'} />
+                    <meshLambertMaterial color={'green'} />
                 </mesh>
             </RigidBody>
         </>
